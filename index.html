@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Load Babel -->
+    <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <h1>My website</h1>
+
+    <div id="banner">
+
+    </div>
+
+    <footer>
+        <p>
+            footer
+        </p>
+    </footer>
+</body>
+<script type="text/babel">
+    const Banner = () => {
+        return (
+            <div>
+                <p>banner</p>
+            </div>
+        )
+    };
+    // render the component to the DOM
+    ReactDOM.render(<Banner />, document.getElementById('banner'))
+</script>
+</html>
