@@ -12,13 +12,15 @@ function App() {
   const [showModal, setshowModal] = useState(false);
   const [showEvents, setShowEvents] = useState(true);
 
-  const [events, setEvents] = useState([
-    {title: 'heron birthday', id: 1},
-    {title: 'stream', id: 2},
-    {title: 'race', id: 3}
-  ])
+  const [events, setEvents] = useState([])
 
-  console.log(showModal);
+  const addEvent = (event) => {
+    setEvents((prevEvents) => {
+      return [...prevEvents, event];
+    });
+
+    setshowModal(false);
+  }
 
   const handleClick = (id) => {
     setEvents((prevEvents) => {
@@ -29,10 +31,6 @@ function App() {
 
     // use state not allowed
   }
-
-  const handleClose = () => {
-    setshowModal(false);
-  };
 
   const subtitle = "All the latest events in mario kingdom";
 
@@ -53,8 +51,8 @@ function App() {
 
       {showEvents && <EventList events={events} handleClick={handleClick} /> }
 
-      {showModal && <Modal handleClose={handleClose} isSalesModal={true}>
-        <NewEventForm />
+      {showModal && <Modal isSalesModal={true}>
+        <NewEventForm addEvent={addEvent} />
       </Modal>}
 
       <div>

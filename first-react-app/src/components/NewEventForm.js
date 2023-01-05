@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import './NewEventForm.css'
 
-export default function NewEventForm() {
-  const [title, setTitle] = useState('');
-  const [date, setDate] = useState('');
+export default function NewEventForm({ addEvent }) {
+  // const [title, setTitle] = useState('');
+  // const [date, setDate] = useState('');
 
   const resetForm = () => {
-    setTitle('');
-    setDate('');
+    // setTitle('');
+    // setDate('');
   }
 
   const handleSubmit = (e) => {
@@ -16,10 +16,10 @@ export default function NewEventForm() {
     const event ={
       title: title,
       date: date,
-      id: Math.floor(Math.random * 1000)
+      id: Math.floor(Math.random() * 1000)
     }
 
-    console.log(event)
+    addEvent(event);
     resetForm();
   };
 
