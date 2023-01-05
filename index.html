@@ -26,9 +26,19 @@
 </body>
 <script type="text/babel">
     const Banner = () => {
+        const title = 'welcome to my website';
+        const subtitle = 'this is a website for learning React';
+
+        const handleClick = (event) => {
+            console.log('you clicked me');
+            console.log('the site title is:', title);
+        };
+
         return (
             <div>
-                <p>banner</p>
+                <h2>{title.toUpperCase()}</h2>
+                <p>{subtitle}</p>
+                <button onClick={() => { console.log('hello')}}>Click me</button>
             </div>
         )
     };
