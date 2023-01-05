@@ -1,27 +1,31 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './NewEventForm.css'
 
 export default function NewEventForm({ addEvent }) {
-  // const [title, setTitle] = useState('');
-  // const [date, setDate] = useState('');
+  const title = useRef();
+  const date = useRef();
+  const [location, setLocation] = useState('manchester');
 
   const resetForm = () => {
-    // setTitle('');
-    // setDate('');
+    title.current.value = '';
+    date.current.value = '';
+    setLocation('manchester');
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const event ={
-      title: title,
-      date: date,
+      title: title.current.value,
+      date: date.current.value,
+      location: location,
       id: Math.floor(Math.random() * 1000)
     }
 
     addEvent(event);
     resetForm();
   };
+
 
   return (
     <div>
@@ -30,21 +34,24 @@ export default function NewEventForm({ addEvent }) {
           <span>Event Title</span>
           <input
             type='text'
-            onChange={(event) => setTitle(event.target.value)}
-            value={title}
+            ref={title}
           />
         </label>
 
         <label>
           <span>Event Date</span>
           <input type='date'
-            onChange={(event) => setDate(event.target.value)}
-            value={date}
+          ref={date}
           />
         </label>
-
-        <p>title - {title}, date - {date}</p>
-        <p onClick={resetForm}>Reset the form</p>
+        <label>
+          <span>Event Location</span>
+          <select onChange={(event) => { setLocation(event.target.value) }}>
+            <option value="manchester">Manchester</option>
+            <option value="london">London</option>
+            <option value="caardiff">Caardiff</option>
+          </select>
+        </label>
         <button>Submit</button>
       </form>
     </div>

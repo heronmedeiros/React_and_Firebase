@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styles from './EventList.module.css'
 
 export default function EventList({ events, handleClick }) {
@@ -8,6 +8,7 @@ export default function EventList({ events, handleClick }) {
         events.map( (event, index) => (
             <div className={styles.card} key={event.id}>
               <h2>{index} - {event.title}</h2>
+              <p>{event.location} - {event.date} </p>
               <button onClick={() => handleClick(event.id)}>delete event</button>
             </div>
           ))
