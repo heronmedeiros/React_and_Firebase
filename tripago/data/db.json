@@ -2,19 +2,23 @@
   "trips": [
     {
       "title": "2 night stay in Venice",
-      "price": "$195"
+      "price": "$195",
+      "id": "1"
     },
     {
       "title": "3 nights stay in Paris",
-      "price": "$295"
+      "price": "$295",
+      "id": "2"
     },
     {
       "title": "4 night stay in London",
-      "price": "$345"
+      "price": "$345",
+      "id": "3"
     },
     {
       "title": "3 night stay in New York",
-      "price": "$325"
+      "price": "$325",
+      "id": "4"
     }
   ]
 }
