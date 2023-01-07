@@ -1,9 +1,16 @@
 import './App.css'
-import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom'
+import {
+  BrowserRouter,
+  NavLink,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom'
 //page components
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Article from './pages/Article';
 
 function App() {
   return (
@@ -28,6 +35,14 @@ function App() {
 
           <Route path='/contact'>
             <Contact />
+          </Route>
+
+          <Route path='/articles/:id'>
+            <Article />
+          </Route>
+
+          <Route path='*'>
+            <Redirect to='/' />
           </Route>
         </Switch>
       </BrowserRouter>
