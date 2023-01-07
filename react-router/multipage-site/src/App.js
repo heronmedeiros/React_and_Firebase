@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom'
 //page components
 import Home from './pages/Home';
 import Contact from './pages/Contact';
@@ -11,6 +11,10 @@ function App() {
       <BrowserRouter>
         <nav>
           <h1>My Articles</h1>
+
+          <NavLink exact to='/'>Home</NavLink>
+          <NavLink to='/about'>About</NavLink>
+          <NavLink to='/contact'>Contact</NavLink>
         </nav>
 
         <Switch>
